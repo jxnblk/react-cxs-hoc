@@ -12,11 +12,11 @@ npm i react-cxs-hoc
 ```jsx
 // Example HOC usage
 import React from 'react'
-import Cxs from 'react-cxs-hoc'
+import withCxs from 'react-cxs-hoc'
 
 const Box = props => <div {...props} />
 
-export default Cxs(Box)
+export default withCxs(Box)
 ```
 
 ```jsx
@@ -37,7 +37,7 @@ width = 1 / 2,
     width: `${width * 100}%`
   }
 
-  return <Box {...props} className={cx} />
+  return <Box {...props} css={cx} />
 }
 
 export default Grid
@@ -49,7 +49,7 @@ export default Grid
 import React from 'react'
 import { Base } from 'cxs'
 
-const Button = ({ className = {}, ...props }) => {
+const Button = ({ css = {}, ...props }) => {
   const cx = {
     fontFamily: 'inherit',
     fontSize: 'inherit',
@@ -64,11 +64,22 @@ const Button = ({ className = {}, ...props }) => {
     ':hover': {
       backgroundColor: '#06b'
     },
-    ...className
+    ...css
   }
 
-  return <Base {...props} tag='button' className={cx} />
+  return <Base {...props} tag='button' css={cx} />
 }
+```
+
+## Primitives
+
+```js
+import {
+  Header,
+  H1,
+  Button,
+  A
+} from 'cxs/primitives'
 ```
 
 ### Related:

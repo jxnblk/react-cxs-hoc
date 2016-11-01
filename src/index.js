@@ -1,34 +1,31 @@
 
 import React from 'react'
+import classnames from 'classnames'
 import cxs from 'cxs'
 
-const Cxs = (Comp) => {
-  class CxsWrap extends React.Component {
+const withCxs = (Comp) => {
+  class CxsComponent extends React.Component {
     render () {
       const {
+        css,
         className,
         ...rest
       } = this.props
 
-      const cx = typeof className === 'object'
-        ? cxs(className)
-        : className
+      const cx = classnames(className, cxs(css))
 
       return <Comp {...rest} className={cx} />
     }
   }
 
-  CxsWrap.propTypes = {
-    className: React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.object
-    ])
+  CxsComponent.propTypes = {
+    css: React.PropTypes.object
   }
 
-  return CxsWrap
+  return CxsComponent
 }
 
 export cxs from 'cxs'
 
-export default Cxs
+export default withCxs
 
