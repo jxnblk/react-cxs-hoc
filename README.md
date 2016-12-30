@@ -1,6 +1,9 @@
 
 # react-cxs-hoc
 
+## This repo has moved to https://github.com/jxnblk/cxs
+
+<!--
 React higher order component for applying CSS style objects to components with [cxs](https://github.com/jxnblk/cxs)
 
 ```sh
@@ -79,3 +82,4 @@ const Button = ({ className = {}, ...props }) => {
 - [JSS](https://github.com/cssinjs/jss)
 
 MIT License
+-->
